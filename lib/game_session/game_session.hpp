@@ -1,6 +1,6 @@
 #pragma once
-#include <shared_mem/shm_manager.hpp>
 #include <memory>
+#include "shm_manager.hpp"
 
 struct GameSession {
   GameSession();
@@ -8,7 +8,6 @@ struct GameSession {
   int connectedClients = 0;
   int addPlayer();
   void setPlayerId(int id);
-  void addPlayer();
   bool hasGameStarted();
   std::shared_ptr<SharedMemoryManager> sharedMem;
 };

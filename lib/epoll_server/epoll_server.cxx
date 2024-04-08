@@ -1,4 +1,3 @@
-#include "epoll_server.hpp"
 #include <iostream>
 #include <unistd.h>
 #include <sys/socket.h>
@@ -6,14 +5,16 @@
 #include <fcntl.h>
 #include <stdexcept>
 #include <cstring>
-#include <nlohmann/json.hpp>
+
 #include <sys/ipc.h>
 #include <sys/shm.h>
-#include <spdlog/spdlog.h>
+
 #include <csignal> // Include for signal handling
 #include <sys/types.h>
 #include <sys/wait.h>
-
+#include <spdlog/spdlog.h>
+#include <nlohmann/json.hpp>
+#include "epoll_server.hpp"
 using json = nlohmann::json;
 
 static constexpr int MAX_EVENTS = 20;

@@ -1,6 +1,5 @@
 #include "game_state.hpp"
-
-#include "spdlog/spdlog.h"
+#include <spdlog/spdlog.h>
 
 GameState::GameState() {
   for (auto & i : grid) {

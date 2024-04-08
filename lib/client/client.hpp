@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include <game_state/game_state.hpp>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
@@ -9,10 +8,9 @@
 #include <mutex>
 #include <cstdlib>
 #include <iostream>
-#include <game_state/game_state.hpp>
 #include <memory>
-#include "game_session/game_session.hpp"
-
+#include "game_session.hpp"
+#include "game_state.hpp"
 struct Client {
 private:
   int sock;

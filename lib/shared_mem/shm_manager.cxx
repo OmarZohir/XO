@@ -1,4 +1,3 @@
-#include "shm_manager.hpp"
 #include <random>
 #include <cstring>
 #include <iostream>
@@ -6,7 +5,9 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #include <sys/types.h>
-#include <spdlog/spdlog.h>
+#include <limits.h>
+#include "spdlog/spdlog.h"
+#include "shm_manager.hpp"
 
 SharedMemoryManager::SharedMemoryManager() {
   // Set up shared memory for the game state object
@@ -14,7 +15,17 @@ SharedMemoryManager::SharedMemoryManager() {
   std::mt19937 gen(rd());
   std::uniform_int_distribution<> distr;
   int random_num = distr(gen);
-  const char* cur_path = "/storage/developer/projects/b3-common/ouro/apps/cli/epoll/lib/epoll_server";
+  
+  //Automatically detect current path  
+  char cur_path[PATH_MAX];
+  ssize_t len = readlink("/proc/self/exe", cur_path, sizeof(cur_path)-1);
+  if (len != -1) {
+    cur_path[len] = '\0';
+  } else {
+    std::cerr << "readlink error: Unable to get current executable path. Error number: " << errno << " - " << std::strerror(errno) << std::endl;
+    exit(EXIT_FAILURE);
+  }
+
   key = ftok(cur_path, random_num);
   if (key == -1) {
     std::cerr << "ftok error: Unable to generate key. Error number: " << errno << " - " << std::strerror(errno) << std::endl;

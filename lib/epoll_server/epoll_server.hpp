@@ -1,11 +1,11 @@
 #pragma once
-#include <game_state/game_state.hpp>
 #include <vector>
 #include <sys/epoll.h>
 #include <map>
 #include <memory>
-#include <shared_mem/shm_manager.hpp>
-#include <game_session/game_session.hpp>
+#include "game_state.hpp"
+#include "shm_manager.hpp"
+#include "game_session.hpp"
 
 struct EpollServer {
 

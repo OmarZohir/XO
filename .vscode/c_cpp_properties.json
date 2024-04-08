@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/lib/game_session",
+                "${workspaceFolder}/lib/client",
+                "${workspaceFolder}/lib/epoll_server",
+                "${workspaceFolder}/lib/game_state",
+                "${workspaceFolder}/lib/shared_mem"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang++",
+            "cStandard": "c11",
+            "cppStandard": "c++23",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}

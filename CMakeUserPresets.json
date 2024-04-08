@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "/home/ia/self-study_prj/2.XO/XO/build/CMakePresets.json"
+    ]
+}
